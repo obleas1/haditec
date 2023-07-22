@@ -1,0 +1,39 @@
+﻿@page
+@model MiElectronica.Pages.Productos.IndexModel
+@{
+}
+
+<br />
+<h2>Lista de productos</h2>
+<a class='btn btn-primary btn-sm' href='/Productos/Create'>Producto Nuevo</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Stock</th>
+            <th>Cantidad</th>
+            <th>Fecha de creación</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listProductos)
+        {
+            {
+                <tr>
+                    <td>@item.id</td>
+                    <td>@item.nombre</td>
+                    <td>@item.stock</td>
+                    <td>@item.cantidad_producto</td>
+                    <td>@item.fecha_creacion</td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/Productos/Edit?id=@item.id">Edit</a>
+                        <a class="btn btn-danger btn-sm" href="/Productos/Delete?id=@item.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
